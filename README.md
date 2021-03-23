@@ -39,9 +39,11 @@ docker run -d \
   imageName
 ```
 
-## Repository variables to clone / compile the WiredPlayer based structure Game Mode
+## ENV for repository variables to clone / compile the WiredPlayer based structure Game Mode
 
-- DOTNET_GM_FOLDER = Name of your dotnet/resource/Folder. For example dotnet/resources/WiredPlayers
+- WP_GIT_CLONE  Set true to clone / compile the WiredPlayer based structure Game Mode
+
+- DOTNET_GM_FOLDER  Name of your dotnet/resource/Folder. For example dotnet/resources/WiredPlayers
 
 - GIT_USERNAME (Your github username)
 
@@ -52,9 +54,9 @@ docker run -d \
 - COMPILE_GM (If you want to compile the GM when you create the docker, put true)
 
 
-<h4>The variables have been implemented with default values, so they do not have to be set.</h4>
+<h4>The following variables have been implemented with default values, so they do not have to be set.</h4>
 
-## Conf.json
+## ENV for Conf.json
 
 - CONF_ANNOUNCE=false
 - CONF_BIND=0.0.0.0
@@ -95,7 +97,7 @@ docker run -d \
 - DISABLE_CLINET_PACKAGES_RAM_CACHE=false
 - CONF_CLIENT_PACKAGES_SHARED_FOLDER=
 
-## Meta.xml
+## ENV for Meta.xml
 
 - DB_HOST=127.0.0.1
 - DB_USER=USERNAME
