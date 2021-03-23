@@ -2,14 +2,18 @@
 <p>
 </p>
 
-### Docker image for Rage:MP linux server for [WiredPlayers Game Mode](https://github.com/xabier1989/WiredPlayers-RP)
+### Dockerized Rage:MP linux server for [WiredPlayers Game Mode](https://github.com/xabier1989/WiredPlayers-RP)
+
+
+To access the [wiredplayers](https://github.com/xabier1989/WiredPlayers-RP) repository, [visit](https://wiredplayers.ovh/)
 
 ### 🏠 [Homepage](https://github.com/elj4v1/WiredPlayers-Docker)
 
 ## Usage
 
-Docker Run command example
- 
+Follow this example to see how variables work.
+
+Docker Run command example.
 
 ```sh
 docker run -d \
@@ -32,12 +36,12 @@ docker run -d \
   -p 22005:22005/udp \
   -p 22006:22006 \
   -v /opt/ragemp:/ragemp \
-  imagename
+  imageName
 ```
 
 ## Repository variables to clone / compile the WiredPlayer based structure Game Mode
 
-- DOTNET_GM_FOLDER = Name of your dotnet/resource/Folder. Fr example dotnet/resources/WiredPlayers
+- DOTNET_GM_FOLDER = Name of your dotnet/resource/Folder. For example dotnet/resources/WiredPlayers
 
 - GIT_USERNAME (Your github username)
 
