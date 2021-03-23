@@ -19,8 +19,8 @@ Docker Run command example.
 docker run -d \
   --name=ragemp-WP \
   -e CONF_CSHARP=true \
-  -e WP_GIT_CLONE=true \
-  -e DOTNET_GM_FOLDER=WiredPlayers \
+  -e GIT_CLONE=true \
+  -e DOTNET_GM_NAME=WiredPlayers \
   -e GIT_USERNAME=USERNAME \
   -e GIT_TOKEN=TOKEN_PASSWORD \
   -e GIT_URL=xabier1989/WiredPlayers-RP.git \
@@ -41,9 +41,9 @@ docker run -d \
 
 ## ENV for repository variables to clone / compile the WiredPlayer based structure Game Mode
 
-- WP_GIT_CLONE  Set true to clone / compile the WiredPlayer based structure Game Mode
+- GIT_CLONE  Set true to clone / compile the WiredPlayer based structure Game Mode
 
-- DOTNET_GM_FOLDER  Name of your dotnet/resource/Folder. Default is WiredPlayers
+- DOTNET_GM_NAME  Name of your dotnet/resource/Folder. Default is WiredPlayers
 
 - GIT_USERNAME (Your github username)
 
