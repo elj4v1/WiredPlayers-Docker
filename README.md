@@ -2,7 +2,7 @@
 <p>
 </p>
 
-<h4> Docker image for Rage:MP linux server for</h4> [WiredPlayers Game Mode](https://github.com/xabier1989/WiredPlayers-RP)
+### Docker image for Rage:MP linux server for [WiredPlayers Game Mode](https://github.com/xabier1989/WiredPlayers-RP)
 
 ### 🏠 [Homepage](https://github.com/elj4v1/WiredPlayers-Docker)
 
