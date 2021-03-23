@@ -37,7 +37,7 @@ docker run -d \
 
 ## Repository variables to clone / compile the WiredPlayer based structure Game Mode
 
-- DOTNET_RESOURCE = If you don't have your own GM repository based on wiredplayer, use: <h4>WiredPlayers</h4>
+- DOTNET_GM_FOLDER = Name of your dotnet/resource/Folder. Fr example dotnet/resources/WiredPlayers
 
 - GIT_USERNAME (Your github username)
 
