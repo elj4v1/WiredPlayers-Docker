@@ -123,7 +123,7 @@ docker run -d \
 Copyright © 2021 [Javidot](https://github.com/elj4v1).<br />
 This project is [MIT](https://github.com/BamButz/docker-ragemp/blob/master/LICENSE) licensed.
 
-Based on: [BamButz](https://github.com/BamButz/docker-ragemp) docker image<br />
+Based on [BamButz](https://github.com/BamButz/docker-ragemp) docker image<br />
 
 ## Show your support
 ***
