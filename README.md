@@ -2,7 +2,7 @@
 <p>
 </p>
 
-<h3> Docker image for Rage:MP linux server for <h3>WiredPlayers GameMode</h3>
+<h4> Docker image for Rage:MP linux server for</h4> <h3>WiredPlayers Game Mode</h3>
 
 ### 🏠 [Homepage](https://github.com/elj4v1/WiredPlayers-Docker)
 
@@ -35,9 +35,10 @@ docker run -d \
   imagename
 ```
 
-## Variables for conf.json
 
-The variables have been implemented with default values, so they do not have to be set.
+<h4>The variables have been implemented with default values, so they do not have to be set.</h4>
+
+## Conf.json
 
 - CONF_ANNOUNCE=false
 - CONF_BIND=0.0.0.0
@@ -78,8 +79,7 @@ The variables have been implemented with default values, so they do not have to 
 - DISABLE_CLINET_PACKAGES_RAM_CACHE=false
 - CONF_CLIENT_PACKAGES_SHARED_FOLDER=
 
-## Variables for meta.xml
-The variables have been implemented with default values, so they do not have to be set.
+## Meta.xml
 
 - DB_HOST=127.0.0.1
 - DB_USER=USERNAME
