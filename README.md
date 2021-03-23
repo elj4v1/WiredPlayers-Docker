@@ -1,8 +1,8 @@
-  GNU nano 4.8                                                                                                                                              README.md                                                                                                                                                        <h1 align="center">Welcome to WiredPlayers-Docker 👋</h1>
+<h1 align="center">Welcome to WiredPlayers-Docker 👋</h1>
 <p>
 </p>
 
-> Docker image for Rage:MP linux server for <h3>WiredPlayers GameMode</h3>
+<h3> Docker image for Rage:MP linux server for <h3>WiredPlayers GameMode</h3>
 
 ### 🏠 [Homepage](https://github.com/elj4v1/WiredPlayers-Docker)
 
@@ -93,7 +93,14 @@ The variables have been implemented with default values, so they do not have to 
 - META_ISLAND=true
 - META_NEEDS=true
 
+## Expose Ports
 
+- 22005/udp
+- 22006
+
+## Volume
+
+/ragemp
 
 ## Author
 
