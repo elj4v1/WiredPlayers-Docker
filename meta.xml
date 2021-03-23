@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<meta>
+  <info name="WiredPlayers" author="Xabi" type="gamemode" />
+
+  <!-- Gamemode library -->
+  <script src="bin/Debug/netcoreapp3.1/WiredPlayers.dll" />
+
+  <settings>
+    <!-- Database host, 127.0.0.1 if localhost -->
+    <setting name="host" value="{HOST}" />
+    <!-- Database username -->
+    <setting name="username" value="{USERNAME}" />
+    <!-- Database password -->
+    <setting name="password" value="{PASSWORD}" />
+    <!-- Database name -->
+    <setting name="database" value="{DATABASE}" />
+    <!-- Can take NONE or REQUIRED values -->
+    <setting name="ssl" value="{SSL}"/>
+
+    <!-- Gamemode language settings -->
+    <setting name="culture" value="{LANG}" />
+
+    <!-- Application form -->
+    <!-- 0: None, 1: Ingame, 2: External -->
+    <setting name="application" value="{APP}" />
+
+    <!-- Starting money in the bank account -->
+    <setting name="starting-money" value="{MONEY}" />
+
+    <!-- Limits the Blip amount in the map -->
+    <!-- false: show all the blips, true: limit the blips shown -->
+    <setting name="limit-blips" value="{BLIPS}" />
+
+    <!-- Enables/Disables the Cayo Perico island -->
+    <setting name="island-enabled" value="{ISLAND}" />
+
+    <!-- Enables/Disables the hunger and thirst system -->
+    <setting name="basic-needs" value="{NEEDS}" />
+  </settings>
+
+</meta>
+
+
+
+
+
+
+
+
