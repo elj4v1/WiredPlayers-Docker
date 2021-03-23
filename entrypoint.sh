@@ -11,34 +11,34 @@ if [ "$CONF_CSHARP" = "true" ]; then
     sed "s/{ENABLE_NODEJS}/${CONF_ENABLE_NODEJS:=false}/g" -i /ragemp/conf.json
     if [ "$WP_GIT_CLONE" = "true" ]; then
         
-        resource=$DOTNET_RESOURCE
+        gm_folder=$DOTNET_GM_FOLDER
         echo "Clone repository"
-        git clone "https://$GIT_USERNAME:$GIT_TOKEN@github.com/$GIT_URL" /tmp/"$resource"
-        cp -p -R /tmp/"$resource"/* /ragemp/
-        mv -f /ragemp/meta.xml /ragemp/dotnet/resources/"$resource"/
+        git clone "https://$GIT_USERNAME:$GIT_TOKEN@github.com/$GIT_URL" /tmp/"$gm_folder"
+        cp -p -R /tmp/"$gm_folder"/* /ragemp/
+        mv -f /ragemp/meta.xml /ragemp/dotnet/resources/"$gm_folder"/
     
         ########################
         ## Meta.xml variables ##
         ########################
         echo "Set meta variables"
-        sed "s/{HOST}/${DB_HOST=127.0.0.1}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{USERNAME}/${DB_USER=USERNAME}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{PASSWORD}/${DB_PASSWD=PASSWORD}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{DATABASE}/${DB=DATABASE}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{SSL}/${DB_SSL=NONE}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{LANG}/${META_LANG=en-GB}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{APP}/${META_APP=0}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{MONEY}/${META_MONEY=10000}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{BLIPS}/${META_BLIP=true}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{ISLAND}/${META_ISLAND=true}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
-        sed "s/{NEEDS}/${META_NEEDS=true}/g" -i /ragemp/dotnet/resources/"$resource"/meta.xml
+        sed "s/{HOST}/${DB_HOST=127.0.0.1}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{USERNAME}/${DB_USER=USERNAME}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{PASSWORD}/${DB_PASSWD=PASSWORD}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{DATABASE}/${DB=DATABASE}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{SSL}/${DB_SSL=NONE}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{LANG}/${META_LANG=en-GB}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{APP}/${META_APP=0}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{MONEY}/${META_MONEY=10000}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{BLIPS}/${META_BLIP=true}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{ISLAND}/${META_ISLAND=true}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
+        sed "s/{NEEDS}/${META_NEEDS=true}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
 
         if [ "$COMPILE_GM" = "true" ]; then
             echo "Compile CSharp GameMode"
-            dotnet build -v:q /ragemp/dotnet/resources/"$resource"/"$resource.sln"
+            dotnet build -v:q /ragemp/dotnet/resources/"$gm_folder"/"$gm_folder.sln"
 
             if [ $? = 0 ]; then
-               chmod +x /ragemp/dotnet/resources/"$resource"/bin/Debug/netcoreapp3.1/"$resource.dll"
+               chmod +x /ragemp/dotnet/resources/"$gm_folder"/bin/Debug/netcoreapp3.1/"$gm_folder.dll"
             fi
         fi
     else
