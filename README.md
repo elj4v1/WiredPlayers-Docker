@@ -35,6 +35,18 @@ docker run -d \
   imagename
 ```
 
+## Repository variables to clone / compile the WiredPlayer based structure Game Mode
+
+- DOTNET_RESOURCE = If you don't have your own GM repository based on wiredplayer, use: <h4>WiredPlayers</h4>
+
+- GIT_USERNAME (Your github username)
+
+- GIT_TOKEN (Password token of your github account)
+
+- GIT_URL (Wthout https://github.com of the repository for example: xabier1989/WiredPlayers-RP)
+
+- COMPILE_GM (If you want to compile the GM when you create the docker, put true)
+
 
 <h4>The variables have been implemented with default values, so they do not have to be set.</h4>
 
