@@ -3,20 +3,40 @@
 echo "Copy server files"
 cp -p -R /tmpfiles/* /ragemp/
 
-# Rewrite true/false to enabled/disabled for consistency 
+# Rewrite true/false to enabled/disabled for consistency
 # to allow all boolean variables to be set with true/false
 if [ "$CONF_CSHARP" = "true" ]; then
-    
+
     sed "s/{CSHARP}/${CONF_CSHARP:=enabled}/g" -i /ragemp/conf.json
     sed "s/{ENABLE_NODEJS}/${CONF_ENABLE_NODEJS:=false}/g" -i /ragemp/conf.json
-    if [ "$WP_GIT_CLONE" = "true" ]; then
+
+    # check if environment variable is set to true to clone repository
+
+    if [ "$GIT_CLONE" = "true" ]; then
+
+        # check if a name has been defined for the resource (dotnet/resource/GM) or use the default name "WiredPlayers".
+        if [ -z "$DOTNET_GM_NAME"  ]; then
+
+            gm_folder="WiredPlayers"
+
+        else
+
+            gm_folder=$DOTNET_GM_NAME
+
+        fi
         
-        gm_folder=$DOTNET_GM_FOLDER
+        # and download your game mode from the github repository.
+        ## $GIT_USERNAME - Your username
+        ## $GIT_TOKEN - Github secure password token (you should generate it in github options)
+        ## #GIT_URL - (Repository URL wthout https://github.com of the repository for example: xabier1989/WiredPlayers-RP)
+      
         echo "Clone repository"
-        git clone "https://$GIT_USERNAME:$GIT_TOKEN@github.com/$GIT_URL" /tmp/"$gm_folder"
+        git clone "https://$GIT_USERNAME:$GIT_TOKEN@github.com/$GIT_URL" /tmp/"$gm_folder"    
         cp -p -R /tmp/"$gm_folder"/* /ragemp/
+        
+        # move the meta.xml file to your GM folder in (dotnet/resource/GM) to rewrite the values ​​with environment variables
         mv -f /ragemp/meta.xml /ragemp/dotnet/resources/"$gm_folder"/
-    
+
         ########################
         ## Meta.xml variables ##
         ########################
@@ -33,16 +53,12 @@ if [ "$CONF_CSHARP" = "true" ]; then
         sed "s/{ISLAND}/${META_ISLAND=true}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
         sed "s/{NEEDS}/${META_NEEDS=true}/g" -i /ragemp/dotnet/resources/"$gm_folder"/meta.xml
 
+        # if the variable is set to true it will compile the solution using the dotnet build command
         if [ "$COMPILE_GM" = "true" ]; then
+        
             echo "Compile CSharp GameMode"
             dotnet build -v:q /ragemp/dotnet/resources/"$gm_folder"/"$gm_folder.sln"
-
-            if [ $? = 0 ]; then
-               chmod +x /ragemp/dotnet/resources/"$gm_folder"/bin/Debug/netcoreapp3.1/"$gm_folder.dll"
-            fi
         fi
-    else
-        echo "No git repository was chosen"
     fi
 else
     sed "s/{CSHARP}/${CONF_CSHARP:=disabled}/g" -i /ragemp/conf.json
@@ -92,6 +108,9 @@ sed "s/{CREATE_FASTDL_SNAPSHOT}/${CONF_CREATE_FASTDL_SNAPSHOT:=false}/g" -i /rag
 sed "s/{DISABLE_CLINET_PACKAGES_RAM_CACHE}/${DISABLE_CLINET_PACKAGES_RAM_CACHE:=false}/g" -i /ragemp/conf.json
 sed "s/{CLIENT_PACKAGES_SHARED_FOLDER}/$CONF_CLIENT_PACKAGES_SHARED_FOLDER/g" -i /ragemp/conf.json
 
+
 echo "Run Server"
 cd /ragemp
+# Start server command
 /ragemp/ragemp-server
+
