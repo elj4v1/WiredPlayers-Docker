@@ -43,7 +43,7 @@ docker run -d \
 
 - WP_GIT_CLONE  Set true to clone / compile the WiredPlayer based structure Game Mode
 
-- DOTNET_GM_FOLDER  Name of your dotnet/resource/Folder. For example dotnet/resources/WiredPlayers
+- DOTNET_GM_FOLDER  Name of your dotnet/resource/Folder. Default is WiredPlayers
 
 - GIT_USERNAME (Your github username)
 
