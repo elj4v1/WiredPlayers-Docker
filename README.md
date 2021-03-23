@@ -16,7 +16,7 @@ docker run -d \
   --name=ragemp-WP \
   -e CONF_CSHARP=true \
   -e WP_GIT_CLONE=true \
-  -e DOTNET_RESOURCE=WiredPlayers \
+  -e DOTNET_GM_FOLDER=WiredPlayers \
   -e GIT_USERNAME=USERNAME \
   -e GIT_TOKEN=TOKEN_PASSWORD \
   -e GIT_URL=xabier1989/WiredPlayers-RP.git \
