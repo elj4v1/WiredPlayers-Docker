@@ -116,16 +116,7 @@ docker run -d \
 
 ## Author
 
-👤 **Javidot**
-
-* Github: [@elj4v1](https://github.com/elj4v1)
-
-## Show your support
-
-Give a ⭐ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+👤 **Javidot** * Github: [@elj4v1](https://github.com/elj4v1)
 
 ## 📝 License
 
@@ -133,3 +124,7 @@ Copyright © 2021 [Javidot](https://github.com/elj4v1).<br />
 This project is [MIT](https://github.com/BamButz/docker-ragemp/blob/master/LICENSE) licensed.
 
 Based on: [BamButz](https://github.com/BamButz/docker-ragemp).<br />
+
+## Show your support
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
