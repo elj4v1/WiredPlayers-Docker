@@ -13,20 +13,16 @@ EXPOSE 22006
 RUN apt update && apt install -y \
     wget \
     gcc \
-    libunwind8 \
-    icu-devtools \
-    git \
-    curl \
-    libssl-dev \
-&& rm -rf /var/lib/apt/lists/*
+    git
 
 # Update and install .NET packages
 RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
     dpkg -i packages-microsoft-prod.deb && \
     apt update && apt install -y \
     apt-transport-https \
-    dotnet-sdk-5.0 -y \
-&& rm packages-microsoft-prod.deb
+    dotnet-sdk-5.0 -y && \
+    rm packages-microsoft-prod.deb && \
+    rm -rf /var/lib/apt/lists/*
 
 # Download ragemp server
 RUN wget -O /tmp/srv_1.1-DP.tar.gz https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz && \
