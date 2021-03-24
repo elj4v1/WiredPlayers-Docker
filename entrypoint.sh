@@ -106,7 +106,6 @@ sed "s/{CREATE_FASTDL_SNAPSHOT}/${CONF_CREATE_FASTDL_SNAPSHOT:=false}/g" -i /rag
 sed "s/{DISABLE_CLINET_PACKAGES_RAM_CACHE}/${DISABLE_CLINET_PACKAGES_RAM_CACHE:=false}/g" -i /ragemp/conf.json
 sed "s/{CLIENT_PACKAGES_SHARED_FOLDER}/$CONF_CLIENT_PACKAGES_SHARED_FOLDER/g" -i /ragemp/conf.json
 
-
 echo "Run Server"
 cd /ragemp
 # Start server command
