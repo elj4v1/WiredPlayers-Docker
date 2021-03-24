@@ -25,13 +25,14 @@ RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod
     rm -rf /var/lib/apt/lists/*
 
 # Download ragemp server
-RUN wget -O /tmp/srv_1.1-DP.tar.gz https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz && \
-    tar -xzf /tmp/srv_1.1-DP.tar.gz -C /tmp && \
+RUN wget -O /tmp/prerelease.tar.gz https://cdn.rage.mp/updater/prerelease/server-files/linux_x64.tar.gz && \
+    tar -xzf /tmp/prerelease.tar.gz -C /tmp && \
+    rm /tmp/prerelease.tar.gz && \
     mkdir -p /tmpfiles && \
     mv /tmp/ragemp-srv/* /tmpfiles/ && \
     chmod +x /tmpfiles/ragemp-server && \
-    rm -rf /tmp/ragemp-srv && \
-    mkdir -p /ragemp
+    rm -rf /tmp/ragemp-srv/ && \
+    mkdir -p /ragempsrv
 
 
 # Add setting files
@@ -39,6 +40,6 @@ ADD entrypoint.sh /home/entrypoint.sh
 ADD conf.json /tmpfiles/conf.json
 ADD meta.xml /tmpfiles/meta.xml
 
-VOLUME /ragemp
+VOLUME /ragempsrv
 
 ENTRYPOINT ["sh", "/home/entrypoint.sh"]
