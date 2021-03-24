@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "Copy server files"
+echo "-----------------"
 cp -p -R /tmpfiles/* /ragempsrv/
 rm -rf /tmpfiles/
 
@@ -30,9 +31,13 @@ if [ "$CONF_CSHARP" = "true" ]; then
         ## $GIT_TOKEN - Github secure password token (you should generate it in github options)
         ## #GIT_URL - (Repository URL wthout https://github.com of the repository for example: xabier1989/WiredPlayers-RP)
 
-        echo "Clone repository"
+        echo "Clone $GIT_URL repository"
+        echo "-------------------------"
+
         git clone "https://$GIT_USERNAME:$GIT_TOKEN@github.com/$GIT_URL" /tmp/"$gm_folder"
-        cp -p -R /tmp/"$gm_folder"/* /ragempsrv/
+
+        cp -p -R /tmp/"$gm_folder"/dotnet /ragempsrv/
+        cp -p  -R /tmp/"$gm_folder"/client_packages  /ragempsrv/
         rm -rf /tmp/"$gm_folder"/
 
         # move the meta.xml file to your GM folder in (dotnet/resource/GM) to rewrite the values ​​with environment variables
@@ -56,8 +61,12 @@ if [ "$CONF_CSHARP" = "true" ]; then
 
         # if the variable is set to true it will compile the solution using the dotnet build command
         if [ "$COMPILE_GM" = "true" ]; then
+
             echo "Compile CSharp GameMode"
+            echo "-----------------------"
+
             dotnet build -v:q /ragempsrv/dotnet/resources/"$gm_folder"/"$gm_folder.sln"
+
         fi
     fi
 else
