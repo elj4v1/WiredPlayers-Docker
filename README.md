@@ -35,7 +35,7 @@ docker run -d \
   -e META_LANG=en-GB \
   -p 22005:22005/udp \
   -p 22006:22006 \
-  -v /opt/ragemp:/ragemp \
+  -v /opt/ragemp:/ragempsrv  \
   imageName
 ```
 
